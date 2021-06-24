@@ -1,0 +1,29 @@
+version: "3"
+
+services:
+  lnbits:
+    environment:
+      - "TRACING=1"
+    build:
+        context: .
+        dockerfile: Dockerfile
+    image: cyphernode/lnbits
+    ports: 
+      - "5000:5000"
+    volumes:
+      - "/media/ishi/Artifacts/.cyphernode/lightning/testnet/lightning-rpc:/.lightning/testnet/lightning-rpc"
+    #   - "./.env:/lnbits/.env"
+      - "./data:/lnbits/data"
+    networks:
+      - cyphernodeappsnet
+    restart: always
+    labels:
+      - "traefik.docker.network=cyphernodeappsnet"
+      - "traefik.frontend.rule=PathPrefixStrip:/lnbits"
+      - "traefik.frontend.passHostHeader=true"
+      - "traefik.enable=true"
+      - "traefik.port=8000"
+      - "traefik.frontend.auth.basic.users=<username:bcrypt>"
+networks:
+  cyphernodeappsnet:
+    external: true
