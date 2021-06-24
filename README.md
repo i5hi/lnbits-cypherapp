@@ -2,7 +2,7 @@
 
 Ensure you have cyphernode running with lightning.
 
-Use the path to your lightning data in the `docker-compose.yml` to allow lnbits to access `lightning-rpc`.
+Use the path to your lightning data in the `docker-compose.yml` to allow lnbits to access `lightning-rpc`. Also make sure to specify testnet or mainet in the path.
 
 Within your cyphernode project
 
