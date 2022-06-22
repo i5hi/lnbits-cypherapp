@@ -8,7 +8,7 @@ Within your cyphernode project
 
 ```bash
 cd cyphernode/dist/apps
-git clone https://github.com/vmenond/lnbits-cypherapp
+git clone https://github.com/i5hi/lnbits-cypherapp
 cd lnbits-cypherapp
 mkdir data
 # data will be used by lnbits as the working directory
